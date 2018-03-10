@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { MapPage } from '../pages/map/map';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -19,7 +19,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    MapPage,
     HomePage,
     TabsPage
   ],
@@ -31,7 +31,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    MapPage,
     HomePage,
     TabsPage
   ],
