@@ -1,8 +1,8 @@
 {
-  "name": "myApp",
+  "name": "Ceresio",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Ceresio Team",
+  "homepage": "http://github.com/Celina-W/Ceresio",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -45,7 +45,7 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project",
+  "description": "An android AR app that identifies trash through barcodes and encourages better recycling.",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
