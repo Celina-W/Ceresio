@@ -8,6 +8,6 @@
     "\\src\\pages\\map",
     "\\src\\pages\\tabs"
   ],
-  "SelectedNode": "\\src\\pages\\home\\home.html",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
