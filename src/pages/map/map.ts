@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 // importing plugins
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
-
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MyLocation } from '@ionic-native/google-maps';
 
 @Component({
   selector: 'page-map',
@@ -22,16 +21,16 @@ export class MapPage {
    this.loadMap();
   }
 
-  loadMap() {
+  loadMap() {  
 
     // starting map options
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
-          lat: 43.0741904,
-          lng: -89.3809802
+          lat: 40.6971494,
+          lng: -74.2598745
         },
-        zoom: 18,
+        zoom: 18,4
         tilt: 30
       }
     };
@@ -43,15 +42,28 @@ export class MapPage {
       .then(() => {
         console.log('Map is ready!');
 
+        // Get user location
+        this.map.getMyLocation()
+        .then((location: MyLocation) => {
+          console.log(JSON.stringify(location, null ,2));
+
+          // Move the map camera to the location with animation
+          return this.map.animateCamera({
+            target: location.latLng,
+            zoom: 18,
+            tilt: 30
+          })
+        });
+
         // Now you can use all methods safely.
         // Add a marker to the map
         this.map.addMarker({
-            title: 'Ionic',
+            title: 'Example',
             icon: 'blue',
             animation: 'DROP',
             position: {
-              lat: 43.0741904,
-              lng: -89.3809802
+              lat: 40.6971494,
+              lng: -74.2598745
             }
           })
           // when marker is clicked, create popup alert
