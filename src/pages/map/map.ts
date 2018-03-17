@@ -30,7 +30,7 @@ export class MapPage {
           lat: 40.6971494,
           lng: -74.2598745
         },
-        zoom: 18,4
+        zoom: 18,
         tilt: 30
       }
     };
