@@ -17,6 +17,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { DataServiceProvider } from '../providers/data-service/data-service';
 import { HttpModule } from '@angular/http';
 
+
 @NgModule({
   declarations: [
     MyApp,

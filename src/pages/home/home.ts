@@ -11,7 +11,7 @@ import { DataServiceProvider } from '../../providers/data-service/data-service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  products: any;
+  products: any[] = [];
   selectedProduct: any;
   productFound:boolean = false;
 
@@ -21,10 +21,12 @@ export class HomePage {
     public modalCtrl: ModalController,
     private barcodeScanner: BarcodeScanner,
     public dataService: DataServiceProvider
-   ) {
-    this.dataService.getListDetails()
+   ) {}
+
+   getBarCodeData() {
+   this.dataService.getListDetails()
     .subscribe((response)=> {
-      this.products = response
+      this.products = response.json();
       console.log(this.products);
      });
   }
@@ -38,9 +40,13 @@ export class HomePage {
       this.selectedProduct = this.products.find(product => product.plu === barCodeData.text);
       if(this.selectedProduct !== undefined) {
       this.productFound = true;
+      console.log(this.selectedProduct.name);
+      console.log(barCodeData);
       } else {
       this.productFound = false;
       console.log("barcode data not found");
+      console.log(barCodeData);
+      console.log(this.products);
       }
     },
     // print error details to console

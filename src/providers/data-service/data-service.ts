@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -13,12 +13,11 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class DataServiceProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     console.log('Hello DataServiceProvider Provider');
   }
 
   getListDetails() {
-    return this.http.get('assets/data/products.json')
-      .map((response:Response)=>response.json());
+    return this.http.get('assets/data/products.json');
   }
 }
