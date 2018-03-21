@@ -14,6 +14,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // importing plugins
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { DataServiceProvider } from '../providers/data-service/data-service';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -41,7 +45,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     // adding imported plugins
     BarcodeScanner,
     GoogleMaps,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataServiceProvider
   ]
 })
 export class AppModule {}
