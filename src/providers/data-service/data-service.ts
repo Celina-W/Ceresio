@@ -17,6 +17,7 @@ export class DataServiceProvider {
     console.log('Hello DataServiceProvider Provider');
   }
 
+  // function that returns the JSON database file
   getListDetails() {
     return this.http.get('assets/data/products.json');
   }
