@@ -12,3 +12,12 @@
     <button id="scanButton" (click)='scanBarcode()' block>Scan</button>
   </div>
 </ion-content>
+
+<ion-card *ngIf="productFound">
+  <ion-card-content>
+    <ul>
+      <li>{{selectedProduct.plu}}</li>
+      <li>{{selectedProduct.name}}</li>
+    </ul>
+  </ion-card-content>
+</ion-card>
