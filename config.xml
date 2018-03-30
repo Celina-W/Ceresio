@@ -3,7 +3,7 @@
     <name>Ceresio</name>
     <description>An android AR app that identifies trash through barcodes and encourages better recycling.</description>
     <author href="https://github.com/Celina-W/Ceresio">Ceresio Github</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.14:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
