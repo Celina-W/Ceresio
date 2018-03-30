@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-//import * as fs from 'fs';
-import * as _ from 'lodash';
-
 
 const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Recovery Facility',
     address: '472 2nd Ave, Brooklyn, NY 11232',
@@ -262,8 +259,8 @@ export class MapPage {
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
-          lat: 40.6971494,
-          lng: -74.2598745
+          lat: 40.7285696,
+          lng: -73.9923936
         },
         zoom: 18,
         tilt: 30
@@ -290,11 +287,8 @@ export class MapPage {
           })
         });
 
-
-
         // Now you can use all methods safely.
-        // Add a marker to the map
-
+        // Add all markers to the map
         for (var i = 0; i < locations.length; i++) {
           var obj = locations[i];
           this.map.addMarker({
@@ -305,34 +299,17 @@ export class MapPage {
               lat: obj.coordinates.lat,
               lng: obj.coordinates.lng
             }
-          })
+          });
+          /* POPUPS/INFOWINDOWS WITH ADDRESS TO BE ADDRESSED LATER
           // when marker is clicked, create popup alert
           .then(marker => {
             marker.on(GoogleMapsEvent.MARKER_CLICK)
             .subscribe(() => {
-              alert(obj.address);
+              alert('clicked');
             });
           });
+          */
         }
-        /*
-		_.reduce(locations, function(acc, val) {
-			this.map.addMarker({
-				title: val.name,
-				icon: 'blue',
-				animation: 'DROP',
-				position: val.coordinates
-			})
-
-
-			// when marker is clicked, create popup alert
-			.then(marker => {
-				marker.on(GoogleMapsEvent.MARKER_CLICK)
-				.subscribe(() => {
-					alert('clicked');
-				});
-			});
-		});
-    */
       });
   }
 }
