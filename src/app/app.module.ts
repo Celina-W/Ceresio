@@ -16,7 +16,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { DataServiceProvider } from '../providers/data-service/data-service';
 import { HttpModule } from '@angular/http';
-
+import { CameraPreview } from '@ionic-native/camera-preview';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { HttpModule } from '@angular/http';
     BarcodeScanner,
     GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataServiceProvider
+    DataServiceProvider,
+    CameraPreview
   ]
 })
 export class AppModule {}

@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
 
+import { Platform } from 'ionic-angular';
+
 // importing plugins
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { DataServiceProvider } from '../../providers/data-service/data-service';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 
 @Component({
   selector: 'page-home',
@@ -20,11 +23,28 @@ export class HomePage {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     private barcodeScanner: BarcodeScanner,
-    public dataService: DataServiceProvider
+    public dataService: DataServiceProvider,
+    private cameraPreview: CameraPreview,
+    private platform: Platform
   )
   {
     // call function when home page is opened
     this.getBarCodeData();
+    this.platform.ready().then(() => {
+      let options = {
+        x: 0,
+        y: 0,
+        width: window.screen.width,
+        height: window.screen.height,
+        camera: this.cameraPreview.CAMERA_DIRECTION.BACK,
+        toBack: true,
+        tapPhoto: false,
+        previewDrag: false
+      };
+      this.cameraPreview.startCamera(options).then(() => {
+
+      })
+    });
   }
 
   getBarCodeData() {
