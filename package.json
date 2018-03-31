@@ -62,9 +62,13 @@
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyDMQ5CqC4W-X2CD3B97xShDTjsYaOnjQEY",
         "PLAY_SERVICES_VERSION": "11.8.0",
-        "ANDROID_SUPPORT_V4_VERSION": "24.1.0"
-      }
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.0",
+        "API_KEY_FOR_IOS": "(API_KEY_FOR_IOS)"
+      },
+      "cordova-plugin-camera-preview": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }
