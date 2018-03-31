@@ -2,11 +2,17 @@ page-home {
 
 }
 
+html, body, ion-app, ion-content, ion-page, .nav-decor {
+  background-color: transparent !important;
+}
+
 #scanButton {
     padding: 20px 20px 20px 20px;
     border-radius: 10px;
     font-size: 20px;
     color: white;
     background-color: rgb(66, 134, 244);
-    margin-top: 20px;
+    position: fixed;
+    bottom: 15%;
+    left: 40%;
 }

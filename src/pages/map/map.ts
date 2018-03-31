@@ -236,7 +236,7 @@ const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Rec
 
 
 // importing plugins
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MyLocation } from '@ionic-native/google-maps';
+// import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MyLocation } from '@ionic-native/google-maps';
 
 @Component({
   selector: 'page-map',
@@ -287,7 +287,6 @@ export class MapPage {
     var i, marker;
 
     for (i = 0; i < locations.length; i++) {
-      console.log(locations[i]['coordinates']['lat']);
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i]['coordinates']['lat'], locations[i]['coordinates']['lng']),
         title: locations[i]['name'],

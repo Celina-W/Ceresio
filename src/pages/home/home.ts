@@ -30,6 +30,7 @@ export class HomePage {
   {
     // call function when home page is opened
     this.getBarCodeData();
+    
     this.platform.ready().then(() => {
       let options = {
         x: 0,

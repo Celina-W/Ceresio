@@ -82,15 +82,11 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.2" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.2.5">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDMQ5CqC4W-X2CD3B97xShDTjsYaOnjQEY" />
-        <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.0" />
-        <variable name="API_KEY_FOR_IOS" value="(API_KEY_FOR_IOS)" />
-    </plugin>
+    <plugin name="cordova-plugin-camera-preview" spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git" />
     <allow-navigation href="http://192.168.1.11:8100" />
     <allow-navigation href="http://10.30.11.223:8100" />
     <allow-navigation href="http://192.168.1.14:8100" />
-    <engine name="android" spec="~7.0.0" />
-    <plugin name="cordova-plugin-camera-preview" spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git" />
+    <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <allow-navigation href="http://10.30.8.147:8100" />
 </widget>
