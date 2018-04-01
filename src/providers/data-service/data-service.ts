@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 export class DataServiceProvider {
 
   constructor(public http: Http) {
-    console.log('Hello DataServiceProvider Provider');
+    console.log('DataService initialized');
   }
 
   // function that returns the JSON database file
