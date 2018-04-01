@@ -232,12 +232,6 @@ const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Rec
     address: '941 Stanley Ave, Brooklyn, NY 11208',
     coordinates: { lat: 40.6635765, lng: -73.8746938 } } ];
 
-
-
-
-// importing plugins
-// import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MyLocation } from '@ionic-native/google-maps';
-
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
@@ -290,8 +284,6 @@ export class MapPage {
                 position: latLng,
                 map: map,
                 title: location.name
-                //icon: 'green',
-                //animation: 'DROP'
               });
 
               // add click event for marker
@@ -309,65 +301,3 @@ export class MapPage {
     );
   }
 }
-
-  /*
-  loadMap() {
-
-    // starting map options
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: 40.7285696,
-          lng: -73.9923936
-        },
-        zoom: 18,
-        tilt: 30
-      }
-    };
-
-    this.map = GoogleMaps.create('map', mapOptions);
-
-    // Wait the MAP_READY before using any methods.
-    this.map.one(GoogleMapsEvent.MAP_READY)
-      .then(() => {
-        console.log('Map is ready!');
-
-        // Get user location
-        this.map.getMyLocation()
-        .then((location: MyLocation) => {
-          console.log(JSON.stringify(location, null ,2));
-
-          // Move the map camera to the location with animation
-          return this.map.animateCamera({
-            target: location.latLng,
-            zoom: 18,
-            tilt: 30
-          })
-        });
-
-        // Now you can use all methods safely.
-        // Add all markers to the map
-        for (var i = 0; i < locations.length; i++) {
-          var obj = locations[i];
-          this.map.addMarker({
-            title: obj.name,
-            icon: 'green',
-            animation: 'DROP',
-            position: {
-              lat: obj.coordinates.lat,
-              lng: obj.coordinates.lng
-            }
-          });
-          /* POPUPS/INFOWINDOWS WITH ADDRESS TO BE ADDRESSED LATER
-          // when marker is clicked, create popup alert
-          .then(marker => {
-            marker.on(GoogleMapsEvent.MARKER_CLICK)
-            .subscribe(() => {
-              alert('clicked');
-            });
-          });
-
-        }
-      });
-  }
-  */
