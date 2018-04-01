@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
-import { AboutPage } from '../about/about';
 
 import { Platform } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 // importing plugins
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { DataServiceProvider } from '../../providers/data-service/data-service';
-import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+import { CameraPreview } from '@ionic-native/camera-preview';
 
 @Component({
   selector: 'page-home',
@@ -25,12 +25,20 @@ export class HomePage {
     private barcodeScanner: BarcodeScanner,
     public dataService: DataServiceProvider,
     private cameraPreview: CameraPreview,
-    private platform: Platform
+    private platform: Platform,
+    public loadingCtrl: LoadingController
   )
   {
-    // call function when home page is opened
+    // call functions when home page is opened
+    // call JSON database
     this.getBarCodeData();
 
+    // start loading animation
+    var loading;
+    loading = this.loadingCtrl.create();
+    loading.present();
+
+    // initialize camera preview
     this.platform.ready().then(() => {
       let options = {
         x: 0,
@@ -43,7 +51,8 @@ export class HomePage {
         previewDrag: false
       };
       this.cameraPreview.startCamera(options).then(() => {
-
+        // dismiss loading animation
+        loading.dismiss();
       })
     });
   }
@@ -54,7 +63,6 @@ export class HomePage {
    .subscribe((response)=> {
      // store JSON database from function in a variable
      this.products = response.json();
-     console.log(this.products);
     });
   }
 

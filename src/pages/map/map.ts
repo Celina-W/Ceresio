@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { LoadingController } from 'ionic-angular';
+
 declare const google;
 
 const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Recovery Facility',
@@ -238,7 +240,7 @@ const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Rec
 })
 export class MapPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {
 
   }
 
@@ -246,8 +248,15 @@ export class MapPage {
   map: any;
 
   ionViewDidLoad() {
+    // loading animations
+    var loading;
+    loading = this.loadingCtrl.create();
+    loading.present();
+
     this.initializeMap();
-    // this.loadMap();
+
+    // dismiss loading animations
+    loading.dismiss();
   }
 
   initializeMap() {
