@@ -249,8 +249,6 @@ export class MapPage {
   }
 
   // map plugin code
-  // map: GoogleMap;
-
   map: any;
 
   ionViewDidLoad() {
@@ -273,36 +271,44 @@ export class MapPage {
               mapTypeId: google.maps.MapTypeId.ROADMAP
             }
 
-            this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
+            var map = new google.maps.Map(document.getElementById("map_canvas"), options);
+
+            // Creating a global infoWindow object that will be reused by all markers
+            var infoWindow = new google.maps.InfoWindow();
+
+            // loop through locations list
+            for (var i = 0; i < locations.length; i++) {
+              addLocation(locations[i]);
+            }
+
+            // add a single marker
+            function addLocation(location) {
+              var latLng = new google.maps.LatLng(location.coordinates.lat, location.coordinates.lng);
+
+              // create a marker and place on map
+              var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: location.name
+                //icon: 'green',
+                //animation: 'DROP'
+              });
+
+              // add click event for marker
+              google.maps.event.addListener( marker, "click", function(e) {
+                var contentString = '<div style="width:100%"><h2>' + location.name + '\n</h2><p>' + location.address + '</p></div>';
+                infoWindow.setContent( contentString );
+                infoWindow.open( map, marker );
+              });
+            }
         },
 
         (error) => {
             console.log(error);
         }, locationOptions
     );
-
-    // MARKERS NOT WORKING/SHOWING UP
-    var infowindow = new google.maps.InfoWindow();
-
-    var i, marker;
-
-    for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i]['coordinates']['lat'], locations[i]['coordinates']['lng']),
-        title: locations[i]['name'],
-        // animation: 'DROP',
-        // icon: 'green',
-        map: this.map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i]['address']);
-          infowindow.open(this.map, marker);
-        }
-      })(marker, i));
-    }
   }
+}
 
   /*
   loadMap() {
@@ -365,4 +371,3 @@ export class MapPage {
       });
   }
   */
-}
