@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+declare const google;
+
 const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Recovery Facility',
     address: '472 2nd Ave, Brooklyn, NY 11232',
     coordinates: { lat: 40.66025459999999, lng: -74.00535959999999 } },
@@ -234,7 +236,7 @@ const locations = [ { name: 'Sims Municipal Recycling - Sunset Park Material Rec
 
 
 // importing plugins
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MyLocation } from '@ionic-native/google-maps';
+// import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MyLocation } from '@ionic-native/google-maps';
 
 @Component({
   selector: 'page-map',
@@ -247,12 +249,62 @@ export class MapPage {
   }
 
   // map plugin code
-  map: GoogleMap;
+  // map: GoogleMap;
+
+  map: any;
 
   ionViewDidLoad() {
-   this.loadMap();
+    this.initializeMap();
+    // this.loadMap();
   }
 
+  initializeMap() {
+
+    let locationOptions = {timeout: 20000, enableHighAccuracy: true};
+
+    // set starting point to user location
+    navigator.geolocation.getCurrentPosition(
+
+        (position) => {
+
+            let options = {
+              center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+              zoom: 16,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+
+            this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
+        },
+
+        (error) => {
+            console.log(error);
+        }, locationOptions
+    );
+
+    // MARKERS NOT WORKING/SHOWING UP
+    var infowindow = new google.maps.InfoWindow();
+
+    var i, marker;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i]['coordinates']['lat'], locations[i]['coordinates']['lng']),
+        title: locations[i]['name'],
+        // animation: 'DROP',
+        // icon: 'green',
+        map: this.map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i]['address']);
+          infowindow.open(this.map, marker);
+        }
+      })(marker, i));
+    }
+  }
+
+  /*
   loadMap() {
 
     // starting map options
@@ -308,8 +360,9 @@ export class MapPage {
               alert('clicked');
             });
           });
-          */
+
         }
       });
   }
+  */
 }
