@@ -248,15 +248,17 @@ export class MapPage {
   map: any;
 
   ionViewDidLoad() {
-    // loading animations
+    // loading animation
     var loading;
     loading = this.loadingCtrl.create();
     loading.present();
 
     this.initializeMap();
 
-    // dismiss loading animations
-    loading.dismiss();
+    // dismiss loading animation after 4 sec
+    setTimeout(() => {
+      loading.dismiss();
+    }, 4000);
   }
 
   initializeMap() {
