@@ -2,7 +2,7 @@ page-home {
 
 }
 
-html, body, ion-app, ion-content, ion-page, .nav-decor {
+html, body, ion-app, ion-content, ion-page, .nav-decor, ion-card {
   background-color: transparent !important;
 }
 
@@ -20,4 +20,12 @@ html, body, ion-app, ion-content, ion-page, .nav-decor {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+#overlay {
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

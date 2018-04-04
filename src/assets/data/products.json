@@ -5,6 +5,20 @@
   },
   {
     "plu":"075720000814",
-    "name":"Water Bottle"
+    "name":"Poland Spring Water Bottle",
+    "material":"Plastic",
+    "tips":"Empty of liquids and keep cap on."
+  },
+  {
+    "plu":"041333415017",
+    "name":"Duracell AA Batteries",
+	  "material":"Alkaline batteries, plastic and cardboard packaging",
+	  "tips":"Drop off single-use batteries at recycling centers that accept them. Cardboard and plastic packaging can be recycled as per usual in marked trashcans."
+  },
+  {
+    "plu":"050428305584",
+    "name":"Disposable Mens' Razors",
+	  "material":"Metal razor blade with plastic handle, plastic packaging",
+	  "tips":"Disposable razors are not safe to recycle. To safely dispose of them, wrap the blade with paper, fold it a few times and bind it with tape. It can now be discarded in the regular household trash. The plastic packaging can be recycled as per usual in marked trashcans."
   }
-] 
+]
