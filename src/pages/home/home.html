@@ -13,11 +13,13 @@
   </div>
 </ion-content>
 
-<ion-card *ngIf="productFound">
+<ion-card *ngIf="productFound" class="background-color-transparent" id="overlay">
   <ion-card-content>
     <ul>
-      <li>{{selectedProduct.plu}}</li>
       <li>{{selectedProduct.name}}</li>
+      <li>Barcode: {{selectedProduct.plu}}</li>
+      <li>{{selectedProduct.material}}</li>
+      <li>{{selectedProduct.tips}}</li>
     </ul>
   </ion-card-content>
 </ion-card>

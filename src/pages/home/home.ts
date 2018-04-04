@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
+import { OverlayPage } from '../overlay/overlay';
 
 import { Platform } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
